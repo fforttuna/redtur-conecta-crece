@@ -2,24 +2,24 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import HeroBackground from "@/components/HeroBackground";
 import FloatingSocialBubbles from "@/components/FloatingSocialBubbles";
-
 const HeroSection = () => {
   const scrollToSignup = () => {
     const element = document.getElementById("signup");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
   const scrollToMore = () => {
     const element = document.getElementById("more");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <HeroBackground />
       <FloatingSocialBubbles />
       {/* Content */}
@@ -38,21 +38,11 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <Button
-              variant="hero"
-              size="lg"
-              onClick={scrollToSignup}
-              className="text-lg px-8 py-6 font-bold bg-primary hover:bg-primary-hover text-primary-foreground"
-            >
+            <Button variant="hero" size="lg" onClick={scrollToSignup} className="text-lg px-8 py-6 font-bold bg-primary hover:bg-primary-hover text-primary-foreground">
               Inscríbete GRATIS
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={scrollToMore}
-              className="text-lg px-8 py-6 border-2 border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40"
-            >
+            <Button variant="outline" size="lg" onClick={scrollToMore} className="text-lg px-8 py-6 border-2 border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40">
               Conoce más
             </Button>
           </div>
@@ -61,12 +51,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
