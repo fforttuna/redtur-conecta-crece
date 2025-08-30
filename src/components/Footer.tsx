@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+// Social icons removed - now in FloatingSocialBubbles component
 
 const Footer = () => {
   return (
@@ -36,30 +36,15 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4 text-background">Síguenos</h4>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
+            <h4 className="font-semibold mb-4 text-background">Contacto</h4>
+            <ul className="space-y-2">
+              <li className="text-background/80 text-sm">
+                Email: contacto@redtur.cl
+              </li>
+              <li className="text-background/80 text-sm">
+                Teléfono: +56 9 8177 9956
+              </li>
+            </ul>
           </div>
         </div>
         

@@ -1,7 +1,18 @@
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 const partners = [
-  { name: "Connectora" },
-  { name: "Smartup" },
-  { name: "Microsoft for Startups" }
+  { 
+    name: "Connectora",
+    value: "Plataforma de redes profesionales para startups"
+  },
+  { 
+    name: "Smartup",
+    value: "Soluciones de inteligencia artificial empresarial"
+  },
+  { 
+    name: "Microsoft for Startups",
+    value: "Programa de aceleración y recursos cloud"
+  }
 ];
 
 const PartnersSection = () => {
@@ -14,28 +25,49 @@ const PartnersSection = () => {
           </h2>
         </div>
         
-        <div className="flex justify-center items-center gap-8 md:gap-12 max-w-4xl mx-auto">
-          {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="group flex items-center justify-center opacity-70 hover:opacity-100 transition-all duration-500 relative"
-            >
-              {/* Subtle halo effect */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-radial from-primary/15 via-primary/5 to-transparent opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 blur-sm" />
-              
-              {/* Enhanced halo on hover */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-radial from-primary/25 via-primary/10 to-transparent opacity-0 group-hover:opacity-80 group-hover:scale-125 transition-all duration-500 blur-md" />
-              
-              <div className="h-12 md:h-16 flex items-center justify-center px-4 relative z-10">
-                <div className="bg-transparent rounded-lg px-6 py-3 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-primary/20">
-                  <span className="text-sm md:text-base font-bold text-foreground font-roboto-condensed group-hover:text-primary transition-colors duration-300">
-                    {partner.name}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TooltipProvider>
+          <div className="flex justify-center items-center gap-12 md:gap-20 max-w-5xl mx-auto">
+            {partners.map((partner, index) => (
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <div
+                    className="group relative cursor-pointer"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${partner.name}: ${partner.value}`}
+                  >
+                    {/* Circular placeholder with glow */}
+                    <div className="relative w-24 h-24 md:w-32 md:h-32">
+                      {/* Soft glow effect */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-radial from-white/20 via-white/10 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500 blur-xl scale-110 group-hover:scale-125" />
+                      
+                      {/* Main circle */}
+                      <div className="relative w-full h-full rounded-full bg-white/10 backdrop-blur-sm border border-white/20 group-hover:border-white/40 transition-all duration-300 flex items-center justify-center group-hover:scale-105">
+                        {/* Logo slot placeholder */}
+                        <div className="text-white/60 text-xs md:text-sm font-medium text-center px-2">
+                          {/* Replace with actual logo image */}
+                          <span className="block font-roboto-condensed">LOGO</span>
+                        </div>
+                      </div>
+                      
+                      {/* Additional metallic shine */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent 
+                  side="bottom" 
+                  className="bg-foreground/95 backdrop-blur-sm text-background border-foreground/20 px-4 py-2"
+                >
+                  <div className="space-y-1">
+                    <p className="font-bold text-sm">{partner.name}</p>
+                    <p className="text-xs text-background/80">{partner.value}</p>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
       </div>
     </section>
   );

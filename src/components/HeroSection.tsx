@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import HeroBackground from "@/components/HeroBackground";
+import FloatingSocialBubbles from "@/components/FloatingSocialBubbles";
 
 const HeroSection = () => {
   const scrollToSignup = () => {
@@ -20,6 +21,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <HeroBackground />
+      <FloatingSocialBubbles />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8 font-league-spartan">
