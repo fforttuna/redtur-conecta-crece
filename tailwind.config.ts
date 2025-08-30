@@ -86,10 +86,6 @@ export default {
 				'fast': 'var(--transition-fast)',
 				'slow': 'var(--transition-slow)',
 			},
-			fontFamily: {
-				'league-spartan': ['League Spartan', 'sans-serif'],
-				'roboto-condensed': ['Roboto Condensed', 'sans-serif'],
-			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
