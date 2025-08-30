@@ -1,7 +1,18 @@
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
 const partners = [
-  { name: "Connectora" },
-  { name: "Smartup" },
-  { name: "Microsoft for Startups" }
+  { 
+    name: "Connectora",
+    value: "Impulsando la innovación turística regional"
+  },
+  { 
+    name: "Smartup",
+    value: "Acelerando startups de turismo sostenible"
+  },
+  { 
+    name: "Microsoft for Startups",
+    value: "Tecnología de punta para el turismo del futuro"
+  }
 ];
 
 const PartnersSection = () => {
@@ -14,26 +25,32 @@ const PartnersSection = () => {
           </h2>
         </div>
         
-        <div className="flex justify-center items-center gap-8 md:gap-12 max-w-4xl mx-auto">
+        <div className="flex justify-center items-center gap-12 md:gap-16 max-w-5xl mx-auto">
           {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="group flex items-center justify-center opacity-70 hover:opacity-100 transition-all duration-500 relative"
-            >
-              {/* Subtle halo effect */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-radial from-primary/15 via-primary/5 to-transparent opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 blur-sm" />
-              
-              {/* Enhanced halo on hover */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-radial from-primary/25 via-primary/10 to-transparent opacity-0 group-hover:opacity-80 group-hover:scale-125 transition-all duration-500 blur-md" />
-              
-              <div className="h-12 md:h-16 flex items-center justify-center px-4 relative z-10">
-                <div className="bg-transparent rounded-lg px-6 py-3 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-primary/20">
-                  <span className="text-sm md:text-base font-bold text-foreground font-roboto-condensed group-hover:text-primary transition-colors duration-300">
-                    {partner.name}
-                  </span>
+            <Tooltip key={index}>
+              <TooltipTrigger asChild>
+                <div
+                  className="group relative cursor-pointer transition-all duration-300 hover:scale-105"
+                >
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-radial from-primary/20 via-primary/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
+                  
+                  {/* Circular placeholder */}
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-foreground/10 border border-foreground/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-foreground/15 group-hover:border-foreground/30 transition-all duration-300">
+                    {/* Placeholder for logo */}
+                    <span className="text-xs md:text-sm font-medium text-foreground/40 text-center px-2 font-roboto-condensed">
+                      LOGO
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </TooltipTrigger>
+              <TooltipContent className="bg-background/95 backdrop-blur-md border-primary/20 max-w-xs">
+                <div className="space-y-1">
+                  <p className="font-semibold text-foreground">{partner.name}</p>
+                  <p className="text-sm text-muted-foreground">{partner.value}</p>
+                </div>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </div>
