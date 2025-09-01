@@ -66,7 +66,7 @@ const HeroBackground = () => {
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
             </feMerge>
-            <feSpecularLighting result="specOut" specularExponent="60" lighting-color="#ffffff" surfaceScale="2">
+            <feSpecularLighting result="specOut" specularExponent="60" lightingColor="#ffffff" surfaceScale="2">
               <fePointLight x="50" y="50" z="300"/>
             </feSpecularLighting>
             <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
